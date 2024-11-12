@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "152022029 BAGUS ANUGRAH",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -252.6, "left": -83.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -33.56, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 86.7,
+      "left": 205.8,
+      "attrs": { "temperature": "52" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -32.4,
+      "left": 128.6,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -32.4,
+      "left": 99.8,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -32.4,
+      "left": 157.4,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -19, "left": 249.6, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -74.4,
+      "left": -151.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "bb1:bp.2", "black", [ "h0" ] ],
+    [ "esp:GND.1", "bb1:bn.1", "cyan", [ "h0" ] ],
+    [ "dht1:VCC", "bb1:bp.14", "black", [ "h-124.8", "v-267.9" ] ],
+    [ "dht1:GND", "bb1:bn.13", "cyan", [ "v19.2", "h-107.2" ] ],
+    [ "led2:C", "bb1:bn.15", "cyan", [ "h-9.2", "v-65.9" ] ],
+    [ "esp:5", "led2:A", "green", [ "h0" ] ],
+    [ "led1:C", "bb1:bn.16", "cyan", [ "h-9.2", "v-48", "h-11.2" ] ],
+    [ "led3:C", "bb1:bn.17", "cyan", [ "h-9.2", "v-57.6", "h-30.4" ] ],
+    [ "relay1:VCC", "esp:5V", "black", [ "h-9.6", "v67.2", "h76.8", "v182.4", "h-345.75" ] ],
+    [ "relay1:GND", "bb1:bn.21", "cyan", [ "h-57.6", "v-48.4", "h-11.2" ] ],
+    [ "bz1:2", "bb1:bn.3", "red", [ "h86", "v-65.9" ] ],
+    [ "dht1:SDA", "esp:15", "white", [ "v9.6", "h-95.9", "v-38.4" ] ],
+    [ "bz1:1", "esp:14", "black", [ "v0" ] ],
+    [ "led1:A", "esp:17", "yellow", [ "v0" ] ],
+    [ "led3:A", "esp:16", "red", [ "v0" ] ],
+    [ "relay1:IN", "esp:4", "blue", [ "h-57.6", "v124.6" ] ]
+  ],
+  "dependencies": {}
+}
