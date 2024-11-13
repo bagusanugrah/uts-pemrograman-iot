@@ -15,6 +15,9 @@ export default function Navbar() {
           <Link href="/seluruh-data" className="text-white">
             Seluruh Data
           </Link>
+          <Link href="/controlling-pompa" className="text-white">
+            Controlling Pompa
+          </Link>
         </div>
       </div>
     </nav>
